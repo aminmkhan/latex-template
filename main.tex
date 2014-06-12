@@ -1,0 +1,76 @@
+%% main.tex
+%% starting point for processing LaTeX document
+
+% Select the format for LaTeX document
+\input{Template/ieee-format}
+% Options include
+%	koma-format
+%	ieee-format
+%	beamer-format
+
+% Load custom packages
+\usepackage{Template/header}
+
+% Command to specify language for spell checking
+% !TeX spellcheck = en_GB
+
+%%%%% Document start here %%%%%
+
+\begin{document}
+%
+% paper title
+\input{title}
+
+% make the title area
+\maketitle
+
+
+% ABSTRACT
+\input{abstract}
+
+
+%% *** TABLE OF CONTENTS
+%\setcounter{tocdepth}{2} % To include subsections in the TOC, pass 2
+%\tableofcontents
+%\newpage
+
+%% *** Introduction
+\input{introduction}
+
+%% *** Section: Architecture and Design
+\input{design} 
+
+% *** Section: Evaluation
+\input{evaluation} 
+
+% *** Section: Related Work
+\input{related-work}
+
+% *** Section: Conclusion
+\input{conclusion}
+
+% *** Acknowledgement
+\input{acknowledgement}
+
+
+% conference papers do not normally have an appendix
+%\appendix
+
+% *** References section
+
+\iftoggle{enable_biblatex} { %%%
+
+	\iftoggle{bibliography_small_font} { %%%
+		\renewcommand{\bibfont}{\normalfont\footnotesize}
+	} %%% \iftoggle{bibliography_small_font}
+	
+	\printbibliography
+	
+}{ %%% else	
+	\bibliographystyle{\bibstylefile} % path given in flags.sty
+	\bibliography{\bibfilepath} % path given in flags.sty
+} %%% \iftoggle{enable_biblatex}
+
+
+% that's all folks
+\end{document}

@@ -1,0 +1,34 @@
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{
+	Title
+}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different affiliations
+\iftoggle{blind_review} { %%%
+	\author{ Authors }
+}{ %%% else \iftoggle{blind_review}
+
+	\author{
+		\IEEEauthorblockN{
+			Author 1\IEEEauthorrefmark{1},
+			Author 2\IEEEauthorrefmark{2}
+		}
+
+		\IEEEauthorblockA{
+			\IEEEauthorrefmark{1}
+			Institution 1\\
+			\{email\}@email
+		}
+		
+		\IEEEauthorblockA{
+			\IEEEauthorrefmark{2}
+			Institution 2\\
+			\{email\}@email
+		}	
+	 
+	}
+} %%% \iftoggle{blindreview}

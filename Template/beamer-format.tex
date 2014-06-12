@@ -1,0 +1,55 @@
+% header.tex
+% Header file for presentation
+
+
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This file is a template using the "beamer" package to create slides for a talk or presentation
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+% MODIFIED by Jonathan Kew, 2008-07-06
+% The header comments and encoding in this file were modified for inclusion with TeXworks.
+% The content is otherwise unchanged from the original distributed with the beamer package.
+
+\documentclass[13pt]{beamer}
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Boadilla}
+	\usecolortheme{lily}   
+	% colors: seagull
+	% or see http://deic.uab.es/~iblanes/beamer_gallery/individual/Boadilla-seagull-default.html
+	
+	%% gets rid of bottom navigation bars
+	\setbeamertemplate{footline}[default]{}
+%	\setbeamertemplate{footline}[page number]{}
+%	\setbeamertemplate{footline}[]{ %
+%		\hfill
+%		\insertframenumber
+%	}
+	
+	\useoutertheme{infolines}   % 
+	\setbeamertemplate{headline}{} % removes the headline that infolines inserts
+
+	%% gets rid of navigation symbols
+	\setbeamertemplate{navigation symbols}{}
+	
+	\setbeamertemplate{bibliography item}[text]
+}

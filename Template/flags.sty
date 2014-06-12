@@ -1,0 +1,101 @@
+
+% flags
+
+%%%%%%%%%% Flags Definitions %%%%%%%%%%
+
+\newtoggle{prepare_camera_ready}	% Remove any extra customisations, prepare camera ready version
+
+\newtoggle{fancy_fonts} 			% Conditionally include fancy fonts 
+\newtoggle{fancy_header_fonts} 		% Conditionally include fancy fonts for headings, sans and mono 
+\newtoggle{bibliography_small_font} % Use smaller font for bibliography
+
+\newtoggle{blind_review}			% Hide details for blind review
+
+\newtoggle{enable_xelatex}			% Use XeLaTeX for compilation
+
+\newtoggle{enable_hyperlinks}		% Use hyperref and url packages
+\newtoggle{enable_biblatex}			% Use biblatex for bibliography
+\newtoggle{enable_todo}				% Show todo notes
+\newtoggle{enable_color}			% Use colors and highlighting etc
+\newtoggle{enable_headings}			% Use page numbers etc 
+
+
+%%%%%%%%%% Flags Default Values %%%%%%%%%%
+
+\global\togglefalse{prepare_camera_ready}
+
+\global\toggletrue{fancy_fonts} 
+\global\toggletrue{fancy_header_fonts}
+\global\toggletrue{bibliography_small_font}
+
+\global\togglefalse{blind_review} 
+
+\global\toggletrue{enable_xelatex}
+
+\global\toggletrue{enable_hyperlinks}
+\global\toggletrue{enable_biblatex}
+\global\toggletrue{enable_todo}
+\global\toggletrue{enable_color}
+\global\toggletrue{enable_headings}
+
+%%%%%%%%%% Flags Settings %%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% CAMERA READY PREPARATION %%%%%%%%%%%%%%%%%%%%
+%\global\toggletrue{prepare_camera_ready} 		% Uncomment to prepare camera ready version <<<<<<<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\togglefalse{fancy_fonts} 			% Uncomment to disable custom fonts and use defaults
+\global\togglefalse{fancy_header_fonts}	% Uncomment to disable header fonts
+\global\togglefalse{bibliography_small_font}% Uncomment to use standard font in References section
+
+%\global\toggletrue{blind_review}			% Uncomment to hide authors information
+
+%\global\togglefalse{enable_biblatex}			% Uncomment to disable biblatex and use BibTeX
+
+%\global\togglefalse{enable_todo}			% Uncomment to hide todo notes
+
+\global\togglefalse{enable_headings}			% Uncomment to hide page headings
+\global\togglefalse{enable_hyperlinks}			% Uncomment to disable links
+\global\togglefalse{enable_color}			% Uncomment to disable color highlighting
+
+\global\togglefalse{enable_xelatex}			% Uncomment to disable XeLaTeX
+
+%%%%%%%%%% Some string commands %%%%%%%%%% 
+
+%%% Specify location for bibliography file
+\newcommand{\bibfilepath}{references} 
+%% some global bibtex file
+\renewcommand{\bibfilepath}{../Mendeley-Bibliography/library} 
+%% in local working directory
+\renewcommand{\bibfilepath}{Bibliography/references} % uncomment to use from current directory
+
+
+%%% Specify location for bibtex template style file
+\newcommand{\bibstylefile}{Template/IEEEtranBST/IEEEtran} 
+%% some other style
+%\renewcommand{\bibstylefile}{tran} % uncomment to specify another style
+
+
+
+%%%%%%%%%%%%%%%%%%%% CAMERA READY PREPARATION %%%%%%%%%%%%%%%%%%%
+\iftoggle{prepare_camera_ready} { %%%
+
+	\RequirePDFTeX % No XeLaTeX etc
+	
+	\global\togglefalse{fancy_fonts} % No fancy fonts
+	\global\togglefalse{fancy_header_fonts} % No fancy fonts
+	\global\togglefalse{bibliography_small_font}
+	
+	\global\togglefalse{blind_review} % Include authors information
+	
+	\global\togglefalse{enable_xelatex}
+	
+	\global\togglefalse{enable_hyperlinks}
+	\global\togglefalse{enable_biblatex}
+	\global\togglefalse{enable_todo}
+	\global\togglefalse{enable_color}
+	\global\togglefalse{enable_headings}
+	
+	\renewcommand{\bibfilepath}{Bibliography/references} % load bib file from local directory
+}{ %%% else
+}
